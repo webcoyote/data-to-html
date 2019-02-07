@@ -9,4 +9,10 @@
                  [garden "1.3.6"]]
   :codox {:output-dir "docs"
           :src-dir-uri "http://github.com/eriksvedang/data-to-html/tree/master/"
-          :src-linenum-anchor-prefix "L"})
+          :src-linenum-anchor-prefix "L"}
+
+  :profiles
+  {:dev          [:project/dev]
+   :repl         {:prep-tasks   ^:replace ["javac" "compile"]
+                  :repl-options {:init-ns dev}}
+   :project/dev  {:source-paths   ["dev/src"]}})
